@@ -25,6 +25,9 @@ struct MissionView: View {
                     .containerRelativeFrame(.horizontal) { width, axis in
                         width * 0.6
                     }
+                Text(mission.formattedLaunchDate)
+                    .font(.title2)
+                    .bold()
                                 
                 VStack(alignment: .leading){
                     Rectangle()
@@ -59,7 +62,7 @@ struct MissionView: View {
                                     Image(crewMember.astronaut.id)
                                         .resizable()
                                         .frame(width: 104, height: 72)
-                                        .clipShape(.capsule)
+                                        .clipShape(Capsule())
                                         .overlay(
                                             Capsule()
                                                 .strokeBorder(.white, lineWidth: 1)
@@ -105,3 +108,4 @@ struct MissionView: View {
     return MissionView(mission: missions[0], astronauts: astronauts)
         .preferredColorScheme(.dark)
 }
+
